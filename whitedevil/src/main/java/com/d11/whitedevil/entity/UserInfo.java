@@ -30,7 +30,7 @@ public class UserInfo implements Serializable {
 	
 	@NotBlank(message = "UserName is Required")
 	@Column(name="user_name")
-	private String username;
+	private String userName;
 	
 	@NotBlank(message="Password is Required")
 	@Column(name="password")
