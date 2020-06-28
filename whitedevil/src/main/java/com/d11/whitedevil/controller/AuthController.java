@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.d11.whitedevil.dto.AuthenticationResponse;
+import com.d11.whitedevil.dto.LoginRequest;
 import com.d11.whitedevil.dto.RegisterRequest;
 import com.d11.whitedevil.service.AuthService;
 
@@ -30,6 +32,11 @@ public class AuthController {
 	public ResponseEntity<String> verifyAccount(@PathVariable String token) {
 		authService.verifyAccount(token);
 		return new ResponseEntity<>("Account Activate Successfully", HttpStatus.OK);
+	}
+	
+	@PostMapping("/login")
+	public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+		return authService.login(loginRequest);
 	}
 
 }
